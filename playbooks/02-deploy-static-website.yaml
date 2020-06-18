@@ -16,5 +16,5 @@
       state: directory
   - name: static website is deployed
     uri:
-      url: https://raw.githubusercontent.com/abdennour/example-static-website/ansible-course/index.html
+      url: https://raw.githubusercontent.com/abdennour/example-static-website/ansible-course/index.html   #raw github
       dest: /var/www/html # /usr/share/nginx/html
