@@ -1,5 +1,0 @@
-container ansible_host=localhost  ansible_private_key_file=/home/server/.ssh/id_rsa  ansible_ssh_user=cloud_user ansible_ssh_port=2525
-ubuntu  ansible_host=90b31c2b011c.mylabserver.com  ansible_private_key_file=/home/server/.ssh/id_rsa  ansible_ssh_user=cloud_user ansible_ssh_port=22
-redhat  ansible_host=b3556c9b181c.mylabserver.com  ansible_private_key_file=/home/server/.ssh/id_rsa  ansible_ssh_user=cloud_user ansible_ssh_port=22
-centos  ansible_host=6088519c781c.mylabserver.com  ansible_private_key_file=/home/server/.ssh/id_rsa  ansible_ssh_user=cloud_user ansible_ssh_port=22
- 

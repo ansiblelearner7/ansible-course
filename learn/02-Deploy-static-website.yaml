@@ -1,0 +1,26 @@
+- hosts: all
+  become: yes
+  gather_facts: yes
+  vars_files:
+  -  vars/06-vars.yaml
+  tasks: 
+  - name: Debug
+    debug:
+     msg: "the value of webserver  is {{ webserver }}"
+  - name: Install webserver 
+    package: 
+     name: "{{ webserver }}"
+     state: present
+  - name: start nginx
+    service:
+     name:  "{{ webserver }}"
+     state: started
+  - name: Webserver root directory exists?
+    file:
+     path: "{{ webserver_root_dir }}"
+     state: directory
+  - name: Deploy static website
+    uri:
+        url: https://raw.githubusercontent.com/ansiblelearner7/example-static-website/{{ git_branch }}/index.html
+        dest: "{{ webserver_root_dir }}"    ### /usr/share/nginx/html
+      
