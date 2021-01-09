@@ -1,0 +1,7 @@
+docker run -dt --privileged  -v /sys/fs/cgroup:/sys/fs/cgroup -p 27:22 devopsharish/centos72_image  /usr/sbin/init
+
+docker inspect <  > | grep -i IP
+
+
+ 
+ 
