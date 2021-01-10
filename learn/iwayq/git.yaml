@@ -1,0 +1,181 @@
+    BB--- App-password   -- zp7bK9ZuzVSBEjsWeTMX
+b68cc3518a1c.mylabserver.com
+
+
+
+###   git --local VCS
+
+    3  sudo yum install -y git
+    4  git --version
+    1  mkdir /devops-project
+    2  cd /devops-project/
+    3  git init .
+    6  git config --global user.name harish
+    7  git config --global user.email hairsh@gmail.com
+        Copy files
+   27  alias g=git
+   28  g status
+   29  git add .
+   30  git commit -m "Initial commit --adding files"
+   31  g status
+   37  vim README.md 
+   33   g log
+   45  g reset 5042d60e843754ef9b15ebb3f0ff80da1e8291ce
+   46   g log
+   47  g status
+   48  g restore README.md
+   49  g status
+   52  vim README.md 
+   
+   
+   
+   
+##### BB:
+ 
+ developer-1:
+   git clone https://devopsvid07@bitbucket.org/devopsvid07/devops-pipeline.git
+    5  cd devops-pipeline/
+    8  git config --global user.name harish1
+    9  git config --global user.email hairsh1@gmail.com
+   10  git remote -v
+	origin	https://devopsvid07@bitbucket.org/devopsvid07/devops-pipeline.git (fetch)
+	origin	https://devopsvid07@bitbucket.org/devopsvid07/devops-pipeline.git (push)
+   <copy code files>
+ git status
+   32  git add .
+   33  git commit -m "Initial commit  --- adding files"
+   34  git push -u origin master
+
+
+ developer-2:
+  git clone https://devopsvid07@bitbucket.org/devopsvid07/devops-pipeline.git
+
+    5  git config --global user.name harish2
+    6  git config --global user.email hairsh2@gmail.com
+    7  git remote -v
+    8  vim README.md 
+    9  git status
+   10  git add .
+   11  git commit -m "dev2 test commit"
+   12  git push -u otigin master
+   13  git push -u origin master
+
+
+Solving Integration Issues:
+   17  git branch
+   20  git branch feature
+   21  git branch
+   22  git checkout feature
+   25  vim README.md 
+   26  git status
+   27  git add .
+   28  git commit -m "dev2 feature branch commit"
+   31  git push -u origin feature
+   
+ Create pull request---> Reviewer apprves---> merge --> delete child branch
+ 
+ 
+
+############ Maven
+
+cd /opt
+ 2  wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip
+
+    4  unzip apache-maven-3.6.3-bin.zip 
+    
+    git clone https://devopsvid07@bitbucket.org/devopsvid07/devops-pipeline.git
+   
+   /root/devops-pipeline/java-source
+ /opt/apache-maven-3.6.3/bin/mvn clean package
+
+
+
+
+###SQ
+
+ 
+    5  rpm -Uvh https://yum.postgresql.org/11/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+    6  yum install -y postgresql11
+    7  yum install -y postgresql-server postgresql-devel postgresql
+   11  /usr/bin/postgresql-setup initdb
+   12  ls /var/lib/pgsql/data/
+ 
+   14  cat /var/lib/pgsql/initdb.log 
+   15  systemctl restart postgresql
+   16  systemctl status  postgresql
+   17  cat /var/lib/pgsql/initdb.log 
+   
+tail -1 /etc/passwd
+postgres:x:26:26:PostgreSQL Server:/var/lib/pgsql:/bin/bash
+
+
+[root@b68cc3518a1c cloud_user]# su - postgres
+-bash-4.2$ psql
+psql (9.2.24)
+Type "help" for help.
+
+postgres=# CREATE USER sonar WITH PASSWORD 'sonar';
+CREATE ROLE
+postgres=# ALTER USER sonar WITH SUPERUSER
+postgres-# \du
+                             List of roles
+ Role name |                   Attributes                   | Member of 
+-----------+------------------------------------------------+-----------
+ postgres  | Superuser, Create role, Create DB, Replication | {}
+ sonar     |                                                | {}
+
+postgres-# \?
+General
+  \copyright             show PostgreSQL usage and distribution terms
+  \g [FILE] or ;         execute query (and send results to file or |pipe)
+  \h [NAME]              help on syntax of SQL commands, * for all commands
+  \q                     quit psql
+
+
+/var/lib/pgsql/data/pg_hba.conf
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     trust 
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust 
+# IPv6 local connections:
+
+
+[root@b68cc3518a1c cloud_user]# su - postgres
+Last login: Sun Jan 10 06:02:39 UTC 2021 on pts/0
+-bash-4.2$ psql
+psql (9.2.24)
+Type "help" for help.
+
+postgres=# CREATE DATABASE SONAR;
+CREATE DATABASE
+postgres=# \l
+                             List of databases
+   Name         |  Owner   | Encoding | Collate | Ctype |   Access privileges   
+-----------+----------+----------+---------+-------+-----------------------
+ postgres      | postgres | UTF8     | en_IN   | en_IN | 
+#### sonar     | postgres | UTF8     | en_IN   | en_IN | 
+
+
+postgres=# GRANT ALL PRIVILEGES ON DATABASE   sonar TO sonar;
+GRANT
+postgres=# \l
+                             List of databases
+   Name       |  Owner   | Encoding | Collate | Ctype |   Access privileges   
+-----------+----------+----------+---------+-------+-----------------------
+ postgres     | postgres | UTF8     | en_IN   | en_IN | 
+#### sonar    | postgres | UTF8     | en_IN   | en_IN | =Tc/postgres         +
+              |          |          |         |       | postgres=CTc/postgres+
+              
+              
+              
+
+
+
+
+
+
+
+
